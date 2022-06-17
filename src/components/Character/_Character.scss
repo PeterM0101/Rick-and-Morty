@@ -1,20 +1,39 @@
 .character {
   max-width: 300px;
   box-shadow: 3px 3px 5px 5px rgb(0 0 0 / 10%);
-  cursor: pointer;
+  border: 1px solid transparent;
   &__image {
     width: 100%;
     object-fit: cover;
     height: 80%;
   }
 
+  &__clickable {
+    cursor: pointer;
+  }
+
   &__rating{
     margin-top: .5rem;
     display: flex;
     gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
     svg{
       width: 1.5rem;
-      fill: #fff;
+      height: 1.5rem;
+      transition: all .2s ease;
+
+    }
+    .character__like:hover,
+    .character__like--active {
+      transform: scale(1.2);
+      stroke: $color-green-light;
+    }
+
+    .character__dislike:hover,
+    .character__dislike--active {
+      transform: scale(1.2);
+      stroke: $color-dark-red;
     }
   }
 
@@ -23,7 +42,12 @@
     margin: 0;
     color: $color-white;
   }
+
   h4 {
     margin-bottom: 0.5rem;
+  }
+
+  &:hover {
+    border: 1px solid $color-dark-red;
   }
 }
